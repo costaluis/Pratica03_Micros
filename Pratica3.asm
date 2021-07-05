@@ -2,6 +2,9 @@
 _read_ADC:
 
 ;Pratica3.c,10 :: 		int read_ADC()
+;Pratica3.c,12 :: 		int aux=0;
+	CLRF        read_ADC_aux_L0+0 
+	CLRF        read_ADC_aux_L0+1 
 ;Pratica3.c,14 :: 		ADCON0.GO = 1;
 	BSF         ADCON0+0, 1 
 ;Pratica3.c,17 :: 		while (ADCON0.GO){}
@@ -12,26 +15,26 @@ L_read_ADC0:
 L_read_ADC1:
 ;Pratica3.c,20 :: 		aux = ADRESH;
 	MOVF        ADRESH+0, 0 
-	MOVWF       R3 
+	MOVWF       read_ADC_aux_L0+0 
 	MOVLW       0
-	MOVWF       R4 
+	MOVWF       read_ADC_aux_L0+1 
 ;Pratica3.c,21 :: 		aux <<= 8;
-	MOVF        R3, 0 
+	MOVF        read_ADC_aux_L0+0, 0 
 	MOVWF       R1 
 	CLRF        R0 
 	MOVF        R0, 0 
-	MOVWF       R3 
+	MOVWF       read_ADC_aux_L0+0 
 	MOVF        R1, 0 
-	MOVWF       R4 
+	MOVWF       read_ADC_aux_L0+1 
 ;Pratica3.c,24 :: 		aux += ADRESL;
 	MOVF        ADRESL+0, 0 
 	ADDWF       R0, 1 
 	MOVLW       0
 	ADDWFC      R1, 1 
 	MOVF        R0, 0 
-	MOVWF       R3 
+	MOVWF       read_ADC_aux_L0+0 
 	MOVF        R1, 0 
-	MOVWF       R4 
+	MOVWF       read_ADC_aux_L0+1 
 ;Pratica3.c,27 :: 		return aux;
 ;Pratica3.c,28 :: 		}
 L_end_read_ADC:

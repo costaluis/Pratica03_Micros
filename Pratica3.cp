@@ -10,7 +10,7 @@
 
 int read_ADC()
 {
- int aux;
+ int aux=0;
 
  ADCON0.GO = 1;
 

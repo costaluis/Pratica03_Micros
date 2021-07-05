@@ -9,7 +9,7 @@
 // Função de leitura do valor inteiro produzido pelo conversor A/D
 int read_ADC()
 {
-    int aux;
+    int aux=0;
     // Inicia a conversão
     ADCON0.GO = 1;
 
