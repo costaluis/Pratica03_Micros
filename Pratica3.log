@@ -1,11 +1,11 @@
 0	1	mikroCPIC1618.exe -MSF -DBG -pP18F4550 -DL -O11111114 -fo8 -N"C:\users\luis\My Documents\AplicacoesDeMicros\Pratica3\Pratica3.mcppi" -SP"C:\users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\users\luis\My Documents\AplicacoesDeMicros\Pratica3\" -IP"C:\users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "Pratica3.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CString.mcl" "__Lib_Conversions.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl"	 
 hint: 0	1139	Available RAM: 2027 [bytes], Available ROM: 32768 [bytes]	 
 diagnostics: 0	122	Compilation Started	Pratica3.c
-diagnostics: 98	123	Compiled Successfully	Pratica3.c
-diagnostics: 0	127	All files Compiled in 256 ms	 
-hint: 0	1144	Used RAM (bytes): 58 (3%)  Free RAM (bytes): 1969 (97%)	Used RAM (bytes): 58 (3%)  Free RAM (bytes): 1969 (97%)
-hint: 0	1144	Used ROM (bytes): 3460 (11%)  Free ROM (bytes): 29308 (89%)	Used ROM (bytes): 3460 (11%)  Free ROM (bytes): 29308 (89%)
+diagnostics: 183	123	Compiled Successfully	Pratica3.c
+diagnostics: 0	127	All files Compiled in 296 ms	 
+hint: 0	1144	Used RAM (bytes): 56 (3%)  Free RAM (bytes): 1971 (97%)	Used RAM (bytes): 56 (3%)  Free RAM (bytes): 1971 (97%)
+hint: 0	1144	Used ROM (bytes): 3750 (11%)  Free ROM (bytes): 29018 (89%)	Used ROM (bytes): 3750 (11%)  Free ROM (bytes): 29018 (89%)
 diagnostics: 0	125	Project Linked Successfully	Pratica3.mcppi
-diagnostics: 0	128	Linked in 83 ms	 
-diagnostics: 0	129	Project 'Pratica3.mcppi' completed: 399 ms	 
-diagnostics: 0	103	Finished successfully: 04 Jul 2021, 16:23:43	Pratica3.mcppi
+diagnostics: 0	128	Linked in 114 ms	 
+diagnostics: 0	129	Project 'Pratica3.mcppi' completed: 480 ms	 
+diagnostics: 0	103	Finished successfully: 05 Jul 2021, 11:34:22	Pratica3.mcppi
