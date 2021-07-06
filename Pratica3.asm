@@ -52,11 +52,11 @@ _main:
 	MOVWF       ADCON2+0 
 ;Pratica3.c,65 :: 		Lcd_Init();
 	CALL        _Lcd_Init+0, 0
-;Pratica3.c,68 :: 		Lcd_Cmd(_LCD_CLEAR);   // Clear display
+;Pratica3.c,68 :: 		Lcd_Cmd(_LCD_CLEAR);
 	MOVLW       1
 	MOVWF       FARG_Lcd_Cmd_out_char+0 
 	CALL        _Lcd_Cmd+0, 0
-;Pratica3.c,71 :: 		Lcd_Cmd(_LCD_TURN_ON); // Cursor off
+;Pratica3.c,71 :: 		Lcd_Cmd(_LCD_TURN_ON);
 	MOVLW       12
 	MOVWF       FARG_Lcd_Cmd_out_char+0 
 	CALL        _Lcd_Cmd+0, 0
@@ -227,12 +227,12 @@ L__main18:
 	MOVWF       _output+3 
 ;Pratica3.c,117 :: 		}
 L_main7:
-;Pratica3.c,119 :: 		output[4] = 'V';
+;Pratica3.c,120 :: 		output[4] = 'V';
 	MOVLW       86
 	MOVWF       _output+4 
-;Pratica3.c,120 :: 		output[5] = '\0';
+;Pratica3.c,121 :: 		output[5] = '\0';
 	CLRF        _output+5 
-;Pratica3.c,123 :: 		Lcd_Out(1, 1, output);
+;Pratica3.c,124 :: 		Lcd_Out(1, 1, output);
 	MOVLW       1
 	MOVWF       FARG_Lcd_Out_row+0 
 	MOVLW       1
@@ -242,21 +242,21 @@ L_main7:
 	MOVLW       hi_addr(_output+0)
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
-;Pratica3.c,127 :: 		ADCON0 = 0b00000101;
+;Pratica3.c,128 :: 		ADCON0 = 0b00000101;
 	MOVLW       5
 	MOVWF       ADCON0+0 
-;Pratica3.c,131 :: 		ADCON1.F4 = 1;
+;Pratica3.c,132 :: 		ADCON1.F4 = 1;
 	BSF         ADCON1+0, 4 
-;Pratica3.c,132 :: 		VREFH = 1;
+;Pratica3.c,133 :: 		VREFH = 1;
 	MOVLW       1
 	MOVWF       _VREFH+0 
-;Pratica3.c,135 :: 		input_ADC = read_ADC();
+;Pratica3.c,136 :: 		input_ADC = read_ADC();
 	CALL        _read_ADC+0, 0
 	MOVF        R0, 0 
 	MOVWF       _input_ADC+0 
 	MOVF        R1, 0 
 	MOVWF       _input_ADC+1 
-;Pratica3.c,138 :: 		input = (((float)input_ADC) * (float)(VREFH - VREFL) + VREFL * ((float)ADC_BITS)) / ((float)ADC_BITS);
+;Pratica3.c,139 :: 		input = (((float)input_ADC) * (float)(VREFH - VREFL) + VREFL * ((float)ADC_BITS)) / ((float)ADC_BITS);
 	CALL        _int2double+0, 0
 	MOVF        R0, 0 
 	MOVWF       FLOC__main+0 
@@ -297,7 +297,7 @@ L_main7:
 	MOVWF       _input+2 
 	MOVF        R3, 0 
 	MOVWF       _input+3 
-;Pratica3.c,139 :: 		input *= 100;
+;Pratica3.c,140 :: 		input *= 100;
 	MOVLW       0
 	MOVWF       R4 
 	MOVLW       0
@@ -315,7 +315,7 @@ L_main7:
 	MOVWF       _input+2 
 	MOVF        R3, 0 
 	MOVWF       _input+3 
-;Pratica3.c,142 :: 		FloatToStr(input, output);
+;Pratica3.c,143 :: 		FloatToStr(input, output);
 	MOVF        R0, 0 
 	MOVWF       FARG_FloatToStr_fnum+0 
 	MOVF        R1, 0 
@@ -329,7 +329,7 @@ L_main7:
 	MOVLW       hi_addr(_output+0)
 	MOVWF       FARG_FloatToStr_str+1 
 	CALL        _FloatToStr+0, 0
-;Pratica3.c,145 :: 		if(strlen(output) > 8){
+;Pratica3.c,146 :: 		if(strlen(output) > 8){
 	MOVLW       _output+0
 	MOVWF       FARG_strlen_s+0 
 	MOVLW       hi_addr(_output+0)
@@ -347,7 +347,7 @@ L_main7:
 L__main19:
 	BTFSC       STATUS+0, 0 
 	GOTO        L_main8
-;Pratica3.c,146 :: 		if(output[strlen(output)-1]=='1'){
+;Pratica3.c,147 :: 		if(output[strlen(output)-1]=='1'){
 	MOVLW       _output+0
 	MOVWF       FARG_strlen_s+0 
 	MOVLW       hi_addr(_output+0)
@@ -367,35 +367,35 @@ L__main19:
 	XORLW       49
 	BTFSS       STATUS+0, 2 
 	GOTO        L_main9
-;Pratica3.c,147 :: 		aux = output[2];
+;Pratica3.c,148 :: 		aux = output[2];
 	MOVF        _output+2, 0 
 	MOVWF       _aux+0 
-;Pratica3.c,148 :: 		output[2] = output[0];
+;Pratica3.c,149 :: 		output[2] = output[0];
 	MOVF        _output+0, 0 
 	MOVWF       _output+2 
-;Pratica3.c,149 :: 		output[0] = '0';
+;Pratica3.c,150 :: 		output[0] = '0';
 	MOVLW       48
 	MOVWF       _output+0 
-;Pratica3.c,150 :: 		output[3] = aux;
+;Pratica3.c,151 :: 		output[3] = aux;
 	MOVF        _aux+0, 0 
 	MOVWF       _output+3 
-;Pratica3.c,151 :: 		}
+;Pratica3.c,152 :: 		}
 	GOTO        L_main10
 L_main9:
-;Pratica3.c,153 :: 		output[3] = output[0];
+;Pratica3.c,154 :: 		output[3] = output[0];
 	MOVF        _output+0, 0 
 	MOVWF       _output+3 
-;Pratica3.c,154 :: 		output[0] = '0';
+;Pratica3.c,155 :: 		output[0] = '0';
 	MOVLW       48
 	MOVWF       _output+0 
-;Pratica3.c,155 :: 		output[2] = '0';
+;Pratica3.c,156 :: 		output[2] = '0';
 	MOVLW       48
 	MOVWF       _output+2 
-;Pratica3.c,157 :: 		}
-L_main10:
 ;Pratica3.c,158 :: 		}
+L_main10:
+;Pratica3.c,159 :: 		}
 L_main8:
-;Pratica3.c,161 :: 		if(strlen(output) ==1){
+;Pratica3.c,162 :: 		if(strlen(output) ==1){
 	MOVLW       _output+0
 	MOVWF       FARG_strlen_s+0 
 	MOVLW       hi_addr(_output+0)
@@ -410,18 +410,18 @@ L_main8:
 L__main20:
 	BTFSS       STATUS+0, 2 
 	GOTO        L_main11
-;Pratica3.c,162 :: 		output[1] = '.';
+;Pratica3.c,163 :: 		output[1] = '.';
 	MOVLW       46
 	MOVWF       _output+1 
-;Pratica3.c,163 :: 		output[2] = '0';
+;Pratica3.c,164 :: 		output[2] = '0';
 	MOVLW       48
 	MOVWF       _output+2 
-;Pratica3.c,164 :: 		output[3] = '0';
+;Pratica3.c,165 :: 		output[3] = '0';
 	MOVLW       48
 	MOVWF       _output+3 
-;Pratica3.c,165 :: 		}
+;Pratica3.c,166 :: 		}
 L_main11:
-;Pratica3.c,167 :: 		if(strlen(output) ==3){
+;Pratica3.c,169 :: 		if(strlen(output) ==3){
 	MOVLW       _output+0
 	MOVWF       FARG_strlen_s+0 
 	MOVLW       hi_addr(_output+0)
@@ -436,28 +436,28 @@ L_main11:
 L__main21:
 	BTFSS       STATUS+0, 2 
 	GOTO        L_main12
-;Pratica3.c,168 :: 		output[3] = 'º';
+;Pratica3.c,170 :: 		output[3] = 'º';
 	MOVLW       186
 	MOVWF       _output+3 
-;Pratica3.c,169 :: 		output[4] = 'C';
+;Pratica3.c,171 :: 		output[4] = 'C';
 	MOVLW       67
 	MOVWF       _output+4 
-;Pratica3.c,170 :: 		output[5] = '\0';
+;Pratica3.c,172 :: 		output[5] = '\0';
 	CLRF        _output+5 
-;Pratica3.c,171 :: 		}else{
+;Pratica3.c,173 :: 		}else{
 	GOTO        L_main13
 L_main12:
-;Pratica3.c,172 :: 		output[4] = 'º';
+;Pratica3.c,174 :: 		output[4] = 'º';
 	MOVLW       186
 	MOVWF       _output+4 
-;Pratica3.c,173 :: 		output[5] = 'C';
+;Pratica3.c,175 :: 		output[5] = 'C';
 	MOVLW       67
 	MOVWF       _output+5 
-;Pratica3.c,174 :: 		output[6] = '\0';
+;Pratica3.c,176 :: 		output[6] = '\0';
 	CLRF        _output+6 
-;Pratica3.c,175 :: 		}
+;Pratica3.c,177 :: 		}
 L_main13:
-;Pratica3.c,178 :: 		Lcd_Out(2, 1, output);
+;Pratica3.c,180 :: 		Lcd_Out(2, 1, output);
 	MOVLW       2
 	MOVWF       FARG_Lcd_Out_row+0 
 	MOVLW       1
@@ -467,12 +467,12 @@ L_main13:
 	MOVLW       hi_addr(_output+0)
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
-;Pratica3.c,181 :: 		Delay_ms(500);
-	MOVLW       6
+;Pratica3.c,183 :: 		Delay_ms(300);
+	MOVLW       4
 	MOVWF       R11, 0
-	MOVLW       19
+	MOVLW       12
 	MOVWF       R12, 0
-	MOVLW       173
+	MOVLW       51
 	MOVWF       R13, 0
 L_main14:
 	DECFSZ      R13, 1, 1
@@ -483,9 +483,9 @@ L_main14:
 	BRA         L_main14
 	NOP
 	NOP
-;Pratica3.c,182 :: 		}
+;Pratica3.c,184 :: 		}
 	GOTO        L_main2
-;Pratica3.c,183 :: 		}
+;Pratica3.c,185 :: 		}
 L_end_main:
 	GOTO        $+0
 ; end of _main

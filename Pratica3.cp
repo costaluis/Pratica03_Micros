@@ -117,6 +117,7 @@ void main()
  output[3] = '0';
  }
 
+
  output[4] = 'V';
  output[5] = '\0';
 
@@ -165,6 +166,7 @@ void main()
  output[3] = '0';
  }
 
+
  if(strlen(output) ==3){
  output[3] = 'º';
  output[4] = 'C';
@@ -179,6 +181,6 @@ void main()
  Lcd_Out(2, 1, output);
 
 
- Delay_ms(500);
+ Delay_ms(300);
  }
 }
